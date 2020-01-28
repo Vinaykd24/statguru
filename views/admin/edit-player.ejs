@@ -1,0 +1,34 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+   <%- include('../includes/navigation.ejs') %>
+
+    <main>
+        <form class="product-form" action="/admin/<% if (editing) { %>edit-player<% } else { %>add-player<% } %>" method="POST">
+            <div class="form-control">
+                <label for="playerName">Player Name</label>
+                <input type="text" name="playerName" id="playerName" value="<% if (editing) { %><%= product.playerName %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="playerRole">Player Role</label>
+                <input type="text" name="playerRole" id="playerRole" value="<% if (editing) { %><%= player.playerRole %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="playerDob">Player Role</label>
+                <input type="date" name="playerDob" id="playerDob" max="2000-13-13" value="<% if (editing) { %><%= player.playerDob %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="playerBio">Player Bio</label>
+                <textarea name="playerBio" id="playerBio" rows="5"><% if (editing) { %><%= player.playerBio %><% } %></textarea>
+            </div>
+            <% if (editing) { %>
+                <input type="hidden" value="<%= player._id %>" name="playerId">
+            <% } %>
+
+            <button class="btn" type="submit"><% if (editing) { %>Update Player<% } else { %>Add Player<% } %></button>
+        </form>
+    </main>
+<%- include('../includes/end.ejs') %>
