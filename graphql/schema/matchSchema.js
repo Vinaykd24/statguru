@@ -1,4 +1,5 @@
 const { gql } = require("apollo-server-express");
+const { GraphQLDate, GraphQLDateTime } = require("graphql-iso-date");
 
 module.exports = gql`
   extend type Query {
@@ -8,8 +9,8 @@ module.exports = gql`
   }
 
   type Match {
-    _id: ID!
-    date: String!
+    _id: ID
+    date: DateTime!
     venue: String!
     oppTeam: String!
     oppTeamScore: Int!
@@ -17,8 +18,8 @@ module.exports = gql`
     homeTeamScore: Int!
     homeTeamWkts: Int!
     result: String!
-    playerId: Int!
-    tourId: Int!
+    playerId: String!
+    tourId: String!
     resultFla: String!
     tournament: Tournament
   }
@@ -41,9 +42,9 @@ module.exports = gql`
     homeTeamScore: Int!
     homeTeamWkts: Int!
     result: String!
-    playerId: Int!
-    tourId: Int!
-    resultFla: String!
+    resultFla: Boolean!
+    playerId: String!
+    tourId: String!
   }
 
   extend type Mutation {

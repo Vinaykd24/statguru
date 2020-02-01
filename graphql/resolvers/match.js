@@ -1,8 +1,11 @@
 const Match = require("../../models/match");
 const Player = require("../../models/player");
 const Tournament = require("../../models/tournament");
+const { GraphQLDate, GraphQLDateTime } = require("graphql-iso-date");
 
 module.exports = {
+  Date: GraphQLDate,
+  DateTime: GraphQLDateTime,
   Query: {
     matches: async () => {
       return await Match.find();

@@ -1,6 +1,9 @@
 const { gql } = require("apollo-server-express");
+const { GraphQLDate, GraphQLDateTime } = require("graphql-iso-date");
 
 module.exports = gql`
+  scalar Date
+  scalar DateTime
   extend type Query {
     players: [Player]
   }
@@ -10,7 +13,7 @@ module.exports = gql`
     pFirstName: String!
     pLastName: String!
     playerRole: String!
-    playerDob: String!
+    playerDob: DateTime!
     playerBio: String!
   }
 

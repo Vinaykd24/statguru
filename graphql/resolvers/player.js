@@ -1,6 +1,9 @@
 const Player = require("../../models/player");
+const { GraphQLDate, GraphQLDateTime } = require("graphql-iso-date");
 
 module.exports = {
+  Date: GraphQLDate,
+  DateTime: GraphQLDateTime,
   Query: {
     players: async () => {
       return await Player.find();

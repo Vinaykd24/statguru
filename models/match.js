@@ -11,9 +11,9 @@ const matchSchema = new Schema({
   homeTeamScore: { type: String, required: true },
   homeTeamWkts: { type: String, required: true },
   result: { type: String, required: true },
-  playerId: { type: Number, required: true },
-  tourId: { type: Number, required: true },
-  resultFla: { type: String, required: true }
+  playerId: { type: String, required: true },
+  tourId: { type: String, required: true },
+  resultFla: { type: Boolean, required: true }
 });
 
 module.exports = mongoose.model("Match", matchSchema);
